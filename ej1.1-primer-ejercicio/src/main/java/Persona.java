@@ -1,0 +1,37 @@
+import java.util.Optional;
+
+public class Persona {
+
+
+        private String nombre;
+        private String poblacion;
+        private String edad;
+
+
+        public Persona(String nombre, String poblacion, String edad) {
+            this.nombre = nombre;
+            this.poblacion = poblacion;
+            this.edad = edad;
+        }
+        public String getNombre() {
+            Optional<String> name = Optional.ofNullable(nombre);
+            return name.orElse("unknown");
+
+        }
+
+        public String getPoblacion() {
+            Optional<String> ciudad = Optional.ofNullable(poblacion);
+            return ciudad.orElse("unknown");
+        }
+
+        public String getEdad() {
+            Optional<String> age = Optional.ofNullable(edad);
+            return age.orElse("unknown");
+        }
+
+        public String toString(){
+            return "Nombre: " + this.getNombre() + " - Población: " + this.getPoblacion() + " - Edad: " + this.getEdad();
+        }
+
+
+}
