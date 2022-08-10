@@ -10,23 +10,23 @@ public class Persona {
 
         public Persona(String nombre, String poblacion, String edad) {
             this.nombre = nombre;
-            this.poblacion = poblacion;
+            this.poblacion = ( poblacion == "") ? null : poblacion;
             this.edad = edad;
         }
         public String getNombre() {
             Optional<String> name = Optional.ofNullable(nombre);
-            return name.orElse("unknown");
+            return name.orElse("Desconocida");
 
         }
 
         public String getPoblacion() {
             Optional<String> ciudad = Optional.ofNullable(poblacion);
-            return ciudad.orElse("unknown");
+            return ciudad.orElse("Desconocida");
         }
 
         public String getEdad() {
             Optional<String> age = Optional.ofNullable(edad);
-            return age.orElse("unknown");
+            return age.orElse("Desconocida");
         }
 
         public String toString(){
