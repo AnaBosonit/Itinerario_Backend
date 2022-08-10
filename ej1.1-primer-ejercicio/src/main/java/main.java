@@ -32,39 +32,22 @@ public class main {
 
                         break;
 
-
                     default:
                         persona = new Persona (info[0], info[1], info[2]);
                         break;
                 }
 
-
                     listaPersonas.add(persona);
-
-
-
 
             }
         }catch(IOException ex){
             ex.printStackTrace(); //handle an exception here
         }
 
-
         listaPersonas.stream()
                 .filter(x-> !x.getEdad().equals("") && Integer.parseInt(x.getEdad())<25)
                 .forEach(System.out::println);
-        /*
-        Persona person;
-        Optional<Persona> thePerson = Optional.of(listaPersonas);
-
-        Path path = Paths.get("fichero.txt");
-        assertFalse(Files.exists(path));*/
 
 
-    /*
-    private static String getBrandTyreName(final Optional<Car> theCar) {
-        return theCar.flatMap(Car::getTyre).flatMap(Tyre::getBrand).flatMap(BrandTyre::getBrandTyreInfo)
-                .map(BrandTyreInfo::getName).orElse(NO_NAME);
-    }*/
     }
 }
