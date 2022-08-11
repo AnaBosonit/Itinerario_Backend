@@ -10,7 +10,7 @@ public class Persona {
 
         public Persona(String nombre, String poblacion, String edad) {
             this.nombre = nombre;
-            this.poblacion = ( poblacion == "") ? null : poblacion;
+            this.poblacion = poblacion;
             this.edad = edad;
         }
         public String getNombre() {

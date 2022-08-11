@@ -23,17 +23,24 @@ public class main {
 
                 Persona persona;
 
+                //Switch de casos según la longitud de currentLine
                 switch (info.length) {
-                    case 1:
-                        persona = new Persona (info[0], "", "");
-                        break;
+
                     case 2:
-                        persona = new Persona (info[0], info[1], "");
+                        persona = new Persona (info[0], info[1], null);
 
                         break;
 
                     default:
+                        //Si falta la info de la poblacion o la edad, que sea null
+                        if (info[1]==""){
+                            info[1] = null;
+                        }
+                        if (info[2]==""){
+                            info[2] = null;
+                        }
                         persona = new Persona (info[0], info[1], info[2]);
+
                         break;
                 }
 
@@ -44,8 +51,9 @@ public class main {
             ex.printStackTrace(); //handle an exception here
         }
 
+        //Mostrar las personas de la lista menores de 25
         listaPersonas.stream()
-                .filter(x-> !x.getEdad().equals("") && Integer.parseInt(x.getEdad())<25)
+                .filter(x-> !x.getEdad().equals("Desconocida") && Integer.parseInt(x.getEdad())<25)
                 .forEach(System.out::println);
 
 
